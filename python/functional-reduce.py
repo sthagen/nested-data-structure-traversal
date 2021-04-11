@@ -31,6 +31,7 @@ sections = [
 
 
 from functools import reduce
+import json
 
 
 def in_section(section, sec_pos, les_pos):
@@ -55,3 +56,6 @@ def cross_section(prev_step, section):
 def calculate(sections):
     init = ([], 0, 0)
     return reduce(cross_section, sections, init)[0]
+
+
+print(json.dumps(calculate(sections), indent=4, sort_keys=False))
